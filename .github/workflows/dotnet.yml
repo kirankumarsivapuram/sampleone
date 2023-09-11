@@ -34,5 +34,12 @@ jobs:
       run: |
         echo "*****"
         cat ./Solution1/UnitTestProject/TestResults/test-results.trx
-        
+        pwsh:
+        $Path ="./Solution1/UnitTestProject/TestResults/test-results.trx"
+        [xml]$FileContent = Get-Content -Path $Path
+        $UnitTestResults=$FileContent.TestRun.Results.UnitTestResult
+        $count=$UnitTestResults.count
+        $Passed =0
+        $failed=0
+        Write-Host "Unti test resutl count is : $count"
       
