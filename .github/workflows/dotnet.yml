@@ -3,11 +3,7 @@ name: CI
 on:
   push:
     branches:
-    - testreport
-  pull_request:
-    branches:
-    - testreport
-    
+    - testreport 
 jobs:
   build_and_test:
 
