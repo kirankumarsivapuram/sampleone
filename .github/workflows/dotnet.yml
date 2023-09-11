@@ -42,19 +42,20 @@ jobs:
         Write-Host "Unti test resutl count is : $count"
         foreach($UnitTestResult in  $UnitTestResults)
         {
+        Write-Host "Unit test name ="$UnitTestResult.testName  ", unit test result is =" $UnitTestResult.outcome
         if($UnitTestResult.outcome -eq "Passed")
         {
         $Passed=$Passed+1
-        Write-Host 
+         
         }
         elseif($UnitTestResult.outcome -eq "Failed")
         {
          $failed= $failed+1
         }
         }
-        Write-Host  $Passed
-        Write-Host $failed
-        $failedpercentage =  ($failed/$count) * 100  #$failed * ($count / 100)
+        Write-Host "Total pass count is :" $Passed
+        Write-Host "Total fail count is :" $failed
+        $failedpercentage =  ($failed/$count) * 100 
         $passpercentage =  ($Passed/$count) * 100 
         Write-Host "failed percentage is : $failedpercentage"
         Write-Host "passed percentage is : $passpercentage"
