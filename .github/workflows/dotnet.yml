@@ -37,7 +37,7 @@ jobs:
       
     - name: Test Report
       run: |
-        cat "*****"
+        echo "*****"
         cat **/test-results.trx
         
       
