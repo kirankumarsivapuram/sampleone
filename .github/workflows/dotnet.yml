@@ -32,8 +32,7 @@ jobs:
     - name: Perform a Pester test from the Tests.ps1 file
       shell: pwsh
       run: |     
-        echo "*****"
-        cat ./Solution1/UnitTestProject/TestResults/test-results.trx        
+        echo "*****"        
         $Path ="./Solution1/UnitTestProject/TestResults/test-results.trx"
         [xml]$FileContent = Get-Content -Path $Path
         $UnitTestResults=$FileContent.TestRun.Results.UnitTestResult
@@ -41,4 +40,22 @@ jobs:
         $Passed =0
         $failed=0
         Write-Host "Unti test resutl count is : $count"
+        foreach($UnitTestResult in  $UnitTestResults)
+        {
+        if($UnitTestResult.outcome -eq "Passed")
+        {
+        $Passed=$Passed+1
+        Write-Host 
+        }
+        elseif($UnitTestResult.outcome -eq "Failed")
+        {
+         $failed= $failed+1
+        }
+        }
+        Write-Host  $Passed
+        Write-Host $failed
+        $failedpercentage =  ($failed/$count) * 100  #$failed * ($count / 100)
+        $passpercentage =  ($Passed/$count) * 100 
+        Write-Host "failed percentage is : $failedpercentage"
+        Write-Host "passed percentage is : $passpercentage"
       
