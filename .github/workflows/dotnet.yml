@@ -33,8 +33,7 @@ jobs:
       shell: pwsh
       run: |     
         echo "*****"
-        cat ./Solution1/UnitTestProject/TestResults/test-results.trx
-        pwsh:
+        cat ./Solution1/UnitTestProject/TestResults/test-results.trx        
         $Path ="./Solution1/UnitTestProject/TestResults/test-results.trx"
         [xml]$FileContent = Get-Content -Path $Path
         $UnitTestResults=$FileContent.TestRun.Results.UnitTestResult
