@@ -12,6 +12,10 @@ jobs:
       SOLUTION: 'Solution1/UnitTest.sln'
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
 
     steps:
     - uses: actions/checkout@v2
