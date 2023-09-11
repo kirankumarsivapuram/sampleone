@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-this is the main change
-=======
-this is newly added task to version1.2
->>>>>>> version1.2
