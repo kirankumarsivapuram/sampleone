@@ -11,14 +11,9 @@ jobs:
       BUILD_CONFIG: 'Release'
       SOLUTION: 'Solution1/UnitTest.sln'
 
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      repository-projects: write
-
+    runs-on: ubuntu-latest    
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
@@ -38,6 +33,6 @@ jobs:
     - name: Test Report
       run: |
         echo "*****"
-        cat **/test-results.trx
+        cat ./Solution1/UnitTestProject/TestResults/test-results.trx
         
       
